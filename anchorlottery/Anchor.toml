@@ -1,0 +1,17 @@
+[features]
+seeds = false
+[programs.devnet]
+anchorlottery = "G1bBmcCdu3JtPxyy8dHmiws45nVu8TpXFKgGRtscVwjd"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "devnet"
+wallet = "/home/bram/.config/solana/devnet.json"
+
+# [scripts]
+# test = "yarn run mocha -t 1000000 tests/"
+
+[scripts]
+test = "node tests/anchorlottery.js"
