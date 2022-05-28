@@ -10,11 +10,6 @@ const { SystemProgram, Keypair } = web3;
 // Create a keypair for the account that will hold the GIF data.
 let baseAccount = Keypair.generate();
 
-// New code instead of Keypair.generate() so we don't get a new keypair on every page refresh
-// const arr = Object.values(kp._keypair.secretKey)
-// const secret = new Uint8Array(arr)
-// const baseAccount = web3.Keypair.fromSecretKey(secret)
-
 // Get our program's id from the IDL file.
 const programID = new PublicKey(idl.metadata.address);
 
@@ -154,6 +149,7 @@ const App = () => {
         signers: [baseAccount]
       });
       console.log("Created a new BaseAccount w/ address:", baseAccount.publicKey.toString())
+      console.log(baseAccount);
       setHelper(true)
 
     } catch (error) {
@@ -259,7 +255,7 @@ const App = () => {
           <div className="footer-container">
             <a
               className="footer-text"
-            >{`built by Team 5`}</a>
+            >{`Built by Team 5 @ Encode `}</a>
           </div>
         </div>
       </div>

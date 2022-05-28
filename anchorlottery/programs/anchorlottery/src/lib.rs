@@ -8,13 +8,13 @@ pub mod anchorlottery {
   pub fn start_stuff_off(ctx: Context<StartStuffOff>) -> Result <()> {
     // Get a reference to the account.
     let base_account = &mut ctx.accounts.base_account;
-    // Initialize total_gifs.
+    // Initialize total_tickets
     base_account.total_tickets = 0;
     Ok(())
   }
 
   pub fn buy_ticket(ctx: Context<BuyTicket>) -> Result <()> {
-    // Get a reference to the account and increment total_gifs.
+    // Get a reference to the account and increment total_tickets
     let base_account = &mut ctx.accounts.base_account;
     base_account.total_tickets += 1;
     Ok(())
@@ -31,8 +31,7 @@ pub struct StartStuffOff<'info> {
     pub system_program: Program <'info, System>,
 }
 
-// Specify what data you want in the AddGif Context.
-// Getting a handle on the flow of things :)?
+// Specify what data we want in the BuyTicket Context.
 #[derive(Accounts)]
 pub struct BuyTicket<'info> {
   #[account(mut)]
